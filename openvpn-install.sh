@@ -733,7 +733,7 @@ function installOpenVPN() {
 
 		if [[ $DH_TYPE == "2" ]]; then
 			# ECDH keys are generated on-the-fly so we don't need to generate them beforehand
-			openssl dhparam -out dh.pem $DH_KEY_SIZE
+			openssl dhparam -nodes -out dh.pem $DH_KEY_SIZE
 		fi
 
 		./easyrsa build-server-full "$SERVER_NAME" nopass
